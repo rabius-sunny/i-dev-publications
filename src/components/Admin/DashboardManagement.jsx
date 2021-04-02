@@ -4,9 +4,11 @@ import { useEffect, useState } from 'react'
 import './admin.css'
 import Sidebar from './Sidebar'
 import Spinner from '../Spinner'
+
 const DashboardManagement = () => {
 
     const [books, setBooks] = useState([])
+    const [isEnable, setIsEnable] = useState(false)
     useEffect(() => {
         fetch('https://i-dev-pubs-backend.herokuapp.com/books')
             .then(res => res.json())
@@ -19,12 +21,16 @@ const DashboardManagement = () => {
             .then(res => console.log('Book Deleted Succesfully'))
             .catch(err => console.log(err))
     }
+    const sideBar = () => setIsEnable(!isEnable)
 
     return (
         <>
-            <Sidebar />
+            <Sidebar isEnable={isEnable} setIsEnable={setIsEnable} />
             <div className="panel bg-light">
-                <h2 className="bg-info p-3">Dashboard</h2>
+                <div>
+                <h2 className="bg-info p-3"><span><button onClick={sideBar} id="enable">&#9776;</button></span>Dashboard</h2>
+                
+                </div>
                 <div className="list m-4 p-3 bg-white">
                     <table>
                         <thead>

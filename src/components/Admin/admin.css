@@ -1,12 +1,12 @@
 .sideBar {
     height: 100%;
-    max-width: 300px;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
     background-color: #111;
     overflow-x: hidden;
+    transition: 0.5s;
     padding-top: 20px;
   }
   
@@ -20,6 +20,22 @@
   .sideBar a:hover {
     background-color: #04353569;
   }
+
+  #closeBtn2 {
+    display: none;
+    color: #fff;
+    background: red;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    position: fixed;
+    right: 20px;
+}
+#enable{
+    background: none;
+    border: none;
+    padding-right: 15px;
+}
 
 .panel {
     margin-left: 253px;
@@ -39,3 +55,20 @@ th {background-color: rgba(221, 221, 221, 0.363);}
   border-bottom: 1px solid #ddd;
 }
 #myInput:focus {outline: none !important; color: #111}
+
+@media (max-width: 768px){
+  .sideBar{
+    width: 0;
+    position: fixed;
+    left: -24px;
+  }
+  .panel{margin-left: 0;}
+  .list{
+    margin: 0 !important;
+    padding: 0!important;
+  }
+}
+@media (min-width: 769px) {
+  .sideBar{width: 254px !important}
+  #enable{display: none}
+}

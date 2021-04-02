@@ -6,6 +6,7 @@ import './admin.css'
 const Create = () => {
 
     const [image, setImage] = useState(null)
+    const [isEnable, setIsEnable] = useState(false)
     const { register, handleSubmit, watch, errors } = useForm();
     const handleImage = e => {
         const image = new FormData();
@@ -40,13 +41,15 @@ const Create = () => {
             .then(res => console.log('Book Info Uploaded', res))
             .catch(err => console.log(err))
     };
-
+    const sideBar = () => setIsEnable(!isEnable)
 
     return (
         <>
-            <Sidebar />
+            <Sidebar isEnable={isEnable} setIsEnable={setIsEnable} />
             <div className="panel bg-light">
-                <h2 className="bg-info p-3">Add Book</h2>
+                <div>
+                    <h2 className="bg-info p-3"><span><button onClick={sideBar} id="enable">&#9776;</button></span>Add Book</h2>
+                </div>
                 <form onSubmit={handleSubmit(onSubmit)} className="m-5 p-4 myForm bg-white">
                     <div className="row">
                         <div className="col-md-6">
