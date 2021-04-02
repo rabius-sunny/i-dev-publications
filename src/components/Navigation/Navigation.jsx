@@ -7,15 +7,25 @@ import './Navigation.css'
 const Navigation = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+    const openNav = () => {
+        const nav = document.getElementById('sideNav')
+        nav.style.width = '40%'
+    }
+    const closeNav = () => {
+        const nav = document.getElementById('sideNav')
+        nav.style.width = '0'
+    }
 
     return (
         <>
             <nav className="navbar navbar-expand-lg">
-                <div className="container">
+                <div className="myNav d-flex justify-content-between">
                     <div className="navbar-brand">
                         <Link to="/"><img src={logo} width="150px" alt="logo" /></Link>
                     </div>
-                    <ul className="navbar-nav">
+                    <div><span className="openBtn" onClick={openNav}>&#9776;</span></div>
+                    <ul className="navbar-nav mobileNav" id="sideNav">
+                        <a href="javascript:void(0)" class="closeBtn" onClick={closeNav}>&times;</a>
                         <li className="nav-item ps-4"><Link to="/home" className="nav-link">Home</Link></li>
                         <li className="nav-item ps-4"><Link to="/orders" className="nav-link">Orders</Link></li>
                         <li className="nav-item ps-4"><Link to="/admin" className="nav-link">Admin</Link></li>

@@ -63,8 +63,4 @@ const App = () => {
   );
 }
 
-/*
-Save date to Database on checkout page
-*/
-
 export default App;
