@@ -13,6 +13,8 @@ import Home from './components/Home/Home';
 import Order from './components/Orders/Order';
 import DashboardManagement from './components/Admin/DashboardManagement'
 import Create from './components/Admin/Create'
+import SignUp from './components/Authentication/SignUp';
+import Notfound404 from './components/Notfound/Notfound404';
 
 export const UserContext = createContext()
 
@@ -40,14 +42,20 @@ const App = () => {
           <PrivateRoute path="/orders">
             <Order />
           </PrivateRoute>
-          <Route path="/admin">
+          <PrivateRoute path="/admin">
             <DashboardManagement />
-          </Route>
+          </PrivateRoute>
           <PrivateRoute path="/create">
             <Create />
           </PrivateRoute>
           <Route path="/sign-in">
             <SignIn />
+          </Route>
+          <Route path="/sign-up">
+            <SignUp />
+          </Route>
+          <Route path="*">
+            <Notfound404 />
           </Route>
         </Switch>
       </Router>

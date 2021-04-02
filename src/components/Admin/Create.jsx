@@ -45,24 +45,27 @@ const Create = () => {
     return (
         <>
             <Sidebar />
-            <div className="m-4 p-3">
-                <div className="panel">
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <input type="text" name="name" defaultValue="Book Name" ref={register} className="form-control" />
-                        {errors.name && <span>This field is required</span>}
+            <div className="panel bg-light">
+                <h2 className="bg-info p-3">Add Book</h2>
+                <form onSubmit={handleSubmit(onSubmit)} className="m-5 p-4 myForm bg-white">
+                    <div className="row">
+                        <div className="col-md-6">
+                            <input type="text" name="name" defaultValue="Book Name" ref={register({ required: true })} id="myInput" />
+                            {errors.name && <span>This field is required</span>}
 
-                        <input type="text" name="author" defaultValue="Author Name" ref={register} className="form-control" />
-                        {errors.author && <span>This field is required</span>}
+                            <input type="text" name="author" defaultValue="Author Name" ref={register({ required: true })} id="myInput" />
+                            {errors.author && <span>This field is required</span>}
+                        </div>
+                        <div className="col-md-6">
+                            <input type="number" name="price" defaultValue="000" ref={register({ required: true })} id="myInput" />
+                            {errors.price && <span>This field is required</span>}
 
-                        <input type="number" name="price" ref={register} className="form-control" />
-                        {errors.price && <span>This field is required</span>}
-
-                        <input type="file" name="image" className="form-control" onChange={handleImage} />
-                        {errors.image && <span>This field is required</span>}
-
-                        <input type="submit" value="Add Book" className="btn btn-primary" />
-                    </form>
-                </div>
+                            <input type="file" name="image" id="myInput" onChange={handleImage} />
+                            {errors.image && <span>This field is required</span>}
+                        </div>
+                    </div>
+                    <input type="submit" value="Add Book" className="btn btn-primary" />
+                </form>
             </div>
         </>
     )

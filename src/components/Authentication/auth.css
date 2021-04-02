@@ -2,4 +2,14 @@
     border: 1px solid #ddd;
     max-width: 700px;
     margin: auto !important;
+    margin-bottom: 50px !important;
+}
+.gl, .fb {font-size: 40px;}
+.gl {color: rgb(250, 73, 9) }
+.fb {color: blue;}
+.signInBtn {
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    margin: 0 20px 20px 20px;
+    padding: 10px 15px;
 }

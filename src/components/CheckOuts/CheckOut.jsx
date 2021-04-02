@@ -40,7 +40,6 @@ const CheckOut = () => {
 
         alert('Order Placed Successfully')
         history.push('/')
-
     }
 
     return (
@@ -50,8 +49,22 @@ const CheckOut = () => {
                 <div className="pt-5 mt-5 pb-5 mb-5">
                     <h1>CheckOut</h1>
                     <div className="bg-primary text-white p-5 m-3">
-                        <p>Name: {name} </p>
-                        <p>Price: {price} </p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Discription</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody className="pt-4">
+                                <tr>
+                                    <td>{name}</td>
+                                    <td>1</td>
+                                    <td>${price}</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                     <button onClick={handleOrderPlace} className="btn btn-primary float-end">CheckOut</button>
                 </div>

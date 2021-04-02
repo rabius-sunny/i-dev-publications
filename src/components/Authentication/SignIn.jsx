@@ -6,6 +6,7 @@ import './auth.css'
 import { useHistory, useLocation } from 'react-router'
 import { useContext } from 'react'
 import { UserContext } from '../../App'
+import { Link } from 'react-router-dom'
 
 if (firebase.apps.length === 0) {
     firebase.initializeApp(firebaseconfig)
@@ -37,16 +38,36 @@ const SignIn = () => {
         <>
             <div className="container">
                 <div className="mt-5 mb-5 text-center header">
-                    <img src={logo} width="250px" alt="" />
+                    <Link to='/'><img src={logo} width="250px" alt="" /></Link>
                 </div>
-                <div className="text-center p-5 m-5 login">
-                    <h3 className="pt-5 mt-5 pb-5">Login With</h3>
-                    <div className="d-flex justify-content-around">
-                        <i>logo</i>
-                        <p><button onClick={handleSignIn} className="btn btn-light">Continue with Google</button></p>
+                <div className="login">
+                    <h3 className="p-5">Login</h3>
+                    <div className="pe-5 ps-5">
+                        <label htmlFor="myInput">Username</label>
+                        <input type="text" id="myInput" />
+                        <label htmlFor="myInput">Password</label>
+                        <input type="password" id="myInput" />
+                        <div className="d-flex justify-content-between">
+                            <div>
+                                <input type="checkbox" id="check" className="me-2" />
+                                <label htmlFor="check">Remember me</label>
+                            </div>
+                            <p className="text-primary">Forgot Password</p>
+                        </div>
+                        <button className="btn btn-primary w-100">Login</button>
+                        <p className="text-center pb-2 pt-4">Dont't have an account? <a href="/sign-up">Create an account</a></p>
+                    </div>
+                    <div className="text-center pb-5">_______________ Or _______________</div>
+                    <div className="text-center d-flex justify-content-between align-items-center signInBtn">
+                        <i className="fab fa-google gl"></i>
+                        <p><button onClick={handleSignIn} className="btn btn-white text-primary text-decoration-underline" style={{ marginBottom: '-15px' }}>Continue with Google</button></p>
                         <div></div>
                     </div>
-                    <p className="pb-5">Dont't have an account? <a href="/signup">Create an account</a></p>
+                    <div className="text-center d-flex justify-content-between align-items-center signInBtn">
+                        <i className="fab fa-facebook fb"></i>
+                        <p><button onClick={handleSignIn} className="btn btn-white text-primary text-decoration-underline" style={{ marginBottom: '-15px' }}>Continue with Facebook</button></p>
+                        <div></div>
+                    </div>
                 </div>
             </div>
         </>

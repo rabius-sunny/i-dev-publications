@@ -1,6 +1,26 @@
 .book{
     padding: 15px;
-    background: #ddd;
+    background: #00fff352;
     margin-bottom: 15px;
+    box-shadow: 2px 3px 8px 0px #00000026;
     border-radius: 6px;
+}
+.intro>h1{color: cadetblue}
+#homeInput {
+    border: none;
+    background: #00fff352;
+    padding: 7px;
+    border-radius: 3px 0 0 3px;
+    margin-right: -2px;
+    color: #484848;
+}
+#homeInput:focus{outline: none}
+.homeBg {
+    padding: 10px 0;
+    background: #00fff31f;
+    margin-top: 50px;
+}
+.price {
+    font-size: 25px;
+    font-weight: 800;
 }

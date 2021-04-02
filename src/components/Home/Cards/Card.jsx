@@ -9,7 +9,7 @@ const Card = props => {
         <>
             <div className="col-md-4">
                 <div className="book">
-                    <img className="mb-3" src={image} width="100%" alt="" />
+                    <img className="mb-3" src={image} width="90%" alt="" />
                     <div className="text-start">
                         <h3>{name}</h3>
                         <p>{author}</p>

@@ -28,3 +28,14 @@
 table {width: 100%;}
 td, th {padding: 10px;}
 th {background-color: rgba(221, 221, 221, 0.363);}
+.myForm{border-radius:15px}
+
+#myInput{
+  border: none;
+  display: block;
+  width: 100%;
+  margin-bottom: 30px;
+  color: rgb(121, 121, 121);
+  border-bottom: 1px solid #ddd;
+}
+#myInput:focus {outline: none !important; color: #111}

@@ -1,6 +1,9 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
 import './admin.css'
 import Sidebar from './Sidebar'
+import Spinner from '../Spinner'
 const DashboardManagement = () => {
 
     const [books, setBooks] = useState([])
@@ -32,6 +35,9 @@ const DashboardManagement = () => {
                                 <th>Action</th>
                             </tr>
                         </thead>
+                        {
+                            books.length === 0 && <Spinner />
+                        }
                         <tbody>
                             {
                                 books.map(book => {
@@ -40,7 +46,7 @@ const DashboardManagement = () => {
                                             <td>{book.name}</td>
                                             <td>{book.author}</td>
                                             <td>${book.price}</td>
-                                            <td><button className="btn btn-outline-success me-1">edit</button><button onClick={() => handleDelete(book._id)} className="btn btn-outline-danger">delete</button></td>
+                                            <td><button className="btn btn-outline-success me-1"><FontAwesomeIcon icon={faEdit} /></button><button onClick={() => handleDelete(book._id)} className="btn btn-outline-danger"><FontAwesomeIcon icon={faTrash} /></button></td>
                                         </tr>;
                                     return data
                                 })
